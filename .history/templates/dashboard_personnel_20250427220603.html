@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Personnel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue {{ username }} (Personnel)</h1>
+    <p>Ajouter un nouveau produit :</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: green;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form action="/dashboard_personnel" method="POST">
+<form action="/dashboard_personnel" method="POST">
+    <label>Nom de la personne :</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Titre de l'action :</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Nœud :</label><br>
+    <select name="node" required>
+        <option value="Ferme">Ferme</option>
+        <option value="Usine">Usine</option>
+        <option value="Entrepôt">Entrepôt</option>
+        <option value="Centre d'emballage">Centre d'emballage</option>
+        <option value="Chauffeur">Chauffeur</option>
+        <option value="Centre commercial">Centre commercial</option>
+    </select><br><br>
+
+    <label>ID Produit :</label><br>
+    <input type="text" name="product_id" required><br><br>
+
+    <label>Événement :</label><br>
+    <input type="text" name="event" required><br><br>
+
+    <label>Lieu :</label><br>
+    <input type="text" name="location" required><br><br>
+
+    <input type="submit" value="Ajouter">
+</form>
+
+    <hr>
+    <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
+
+    <h2>Liste des produits enregistrés</h2>
+    {% if products %}
+    <div class="product-list">
+        {% for block in products %}
+            <div class="product-card">
+                <p><strong>ID Produit :</strong> {{ block.product_id }}</p>
+                <p><strong>Événement :</strong> {{ block.event }}</p>
+                <p><strong>Lieu :</strong> {{ block.location }}</p>
+                
+                <strong>Date :</strong> {{ block.get_formatted_date() }}
+            </div>
+        {% endfor %}
+    </div>
+    
+    
+    {% else %}
+        <p>Aucun produit enregistré pour l’instant.</p>
+    {% endif %}
+
+    <br>
+    <a href="/logout">Se déconnecter</a>
+    <h1 class="fade-in">Bienvenue sur SouMart</h1>
+<p class="fade-in">Suivez vos produits de la ferme jusqu'à votre table.</p>
+
+</body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            🌿 <a href="/" class="brand-name">SouMart</a>
+        </div>
+        
+        {% if current_user.is_authenticated %}
+            {% if current_user.role == 'Personnel' %}
+                <a href="/dashboard_personnel">Tableau de bord (Personnel)</a>
+            {% elif current_user.role == 'Client' %}
+                <a href="/dashboard_client">Tableau de bord (Client)</a>
+            {% endif %}
+            <a href="/logout">Déconnexion</a>
+        {% else %}
+            <a href="/login">Connexion</a>
+            <a href="/register">Créer un compte</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+
+</html>
+
+
+<script>
+    function searchProducts() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('product-card');
+        
+        for (let i = 0; i < cards.length; i++) {
+            let card = cards[i];
+            if (card.innerText.toLowerCase().includes(input)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+    </script>
+    

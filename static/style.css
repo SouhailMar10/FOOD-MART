@@ -1,0 +1,241 @@
+/* General Style */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #FFDEE9, #B5FFFC); /* Soft pastel gradient */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titles */
+h1, h2, p {
+    text-align: center;
+    color: #1D4F24; /* Deep forest green */
+    margin-bottom: 20px;
+}
+
+/* Form */
+form {
+    background: #ffffff;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333333;
+    text-align: left;
+}
+
+form input[type="text"],
+form select,
+form input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 2px solid #B5EAD7; /* Soft green border */
+    border-radius: 10px;
+    font-size: 16px;
+    color: #555555;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Buttons */
+input[type="submit"],
+button {
+    background-color: #2A9D8F; /* Teal */
+    color: #ffffff;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #21867A; /* Darker teal */
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: #2A9D8F; /* Teal */
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #2A9D8F; /* Teal */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Flash Messages */
+.flash-error {
+    color: red;
+    background-color: #FFEBEB;
+    border: 1px solid red;
+    padding: 12px;
+    margin: 15px auto;
+    max-width: 420px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.flash-success {
+    color: green;
+    background-color: #DFF6DD;
+    border: 1px solid green;
+    padding: 12px;
+    margin: 15px auto;
+    max-width: 420px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #E4E4E4;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 270px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1D4F24; /* Dark forest green */
+    overflow: hidden;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar-container a {
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.navbar-container a:hover {
+    background-color: #B5EAD7; /* Light green on hover */
+    color: #1D4F24;
+    border-radius: 8px;
+}
+
+/* Brand (icon + name) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    font-size: 20px;
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.navbar-brand a.brand-name {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.navbar-brand a.brand-name:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    background-color: #2A9D8F; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #21867A; /* Darker teal */
+}
+
+/* Container for content */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navbar Styling */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-container a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.navbar-container a:hover {
+    background-color: #FFD700; /* Soft yellow */
+    color: #333;
+}

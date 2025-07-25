@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue - SouMart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur SouMart</h1>
+        <p>Notre plateforme vous permet de tracer vos produits alimentaires de la récolte jusqu'à votre table grâce à la technologie blockchain.</p>
+        <p>Connectez-vous pour suivre vos produits ou enregistrer de nouveaux événements.</p>
+
+        <br><br>
+
+        <a href="/login" class="btn">Se connecter</a>
+
+        <br><br>
+
+        <footer>
+            <p>© 2025 SouMart. Tous droits réservés.</p>
+        </footer>
+        <h1 class="fade-in">Bienvenue sur SouMart</h1>
+        <p class="fade-in">Suivez vos produits de la ferme jusqu'à votre table.</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                🌿 <a href="/" class="brand-name">SouMart</a>
+            </div>
+
+            {% if current_user.is_authenticated %}
+                {% if current_user.role == 'Personnel' %}
+                    <a href="/dashboard_personnel">Tableau de bord (Personnel)</a>
+                {% elif current_user.role == 'Client' %}
+                    <a href="/dashboard_client">Tableau de bord (Client)</a>
+                {% endif %}
+                <a href="/logout">Déconnexion</a>
+            {% else %}
+                <a href="/login">Connexion</a>
+                <a href="/register">Créer un compte</a>
+            {% endif %}
+        </div>
+    </nav>
+
+</body>
+</html>
