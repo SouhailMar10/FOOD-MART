@@ -75,9 +75,6 @@ Puis ouvrir votre navigateur à l'adresse suivante : http://127.0.0.1:5000
 - Optimisation de l'affichage pour les mobiles
 - Déploiement sur une infrastructure cloud
 
-## Auteur
 
-Projet développé par Tresor 9awbaae  
-Contact : tambattresor@icloud.com
 
 # FOOD-MART
